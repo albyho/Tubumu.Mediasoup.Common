@@ -1,6 +1,6 @@
 ﻿using Tubumu.Core.Extensions;
 
-namespace TubumuMeeting.Mediasoup
+namespace Tubumu.Mediasoup
 {
     /// <summary>
     /// Transport trace event type.

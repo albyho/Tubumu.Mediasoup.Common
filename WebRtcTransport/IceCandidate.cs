@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TubumuMeeting.Mediasoup
+namespace Tubumu.Mediasoup
 {
     public class IceCandidate
     {

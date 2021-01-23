@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-namespace TubumuMeeting.Mediasoup.Extensions
+namespace Tubumu.Mediasoup.Extensions
 {
     public static class TaskExtensions
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TubumuMeeting.Mediasoup
+namespace Tubumu.Mediasoup
 {
     /// <summary>
     /// Provides information relating to supported header extensions. The list of

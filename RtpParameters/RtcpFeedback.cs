@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TubumuMeeting.Mediasoup
+namespace Tubumu.Mediasoup
 {
     /// <summary>
     /// Provides information on RTCP feedback messages for a specific codec. Those

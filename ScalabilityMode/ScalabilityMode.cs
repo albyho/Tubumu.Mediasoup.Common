@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using Tubumu.Core.Extensions;
 
-namespace TubumuMeeting.Mediasoup
+namespace Tubumu.Mediasoup
 {
     /// <summary>
     /// 扩展模式

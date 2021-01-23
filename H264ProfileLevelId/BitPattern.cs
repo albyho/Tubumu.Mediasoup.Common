@@ -1,4 +1,4 @@
-﻿namespace TubumuMeeting.Mediasoup
+﻿namespace Tubumu.Mediasoup
 {
     /// <summary>
     /// Class for matching bit patterns such as "x1xx0000" where 'x' is allowed to be

@@ -1,7 +1,7 @@
 ﻿using System;
 using Tubumu.Core.Extensions;
 
-namespace TubumuMeeting.Mediasoup
+namespace Tubumu.Mediasoup
 {
     /// <summary>
     /// Provides information on codec settings within the RTP parameters. The list

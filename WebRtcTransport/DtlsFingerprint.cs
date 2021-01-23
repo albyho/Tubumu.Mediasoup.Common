@@ -1,4 +1,4 @@
-﻿namespace TubumuMeeting.Mediasoup
+﻿namespace Tubumu.Mediasoup
 {
     /// <summary>
     /// The hash function algorithm (as defined in the "Hash function Textual Names"

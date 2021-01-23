@@ -1,4 +1,4 @@
-namespace TubumuMeeting.Mediasoup
+namespace Tubumu.Mediasoup
 {
     /// <summary>
     /// SCTP stream parameters describe the reliability of a certain SCTP stream.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TubumuMeeting.Mediasoup
+namespace Tubumu.Mediasoup
 {
     /// <summary>
     /// Provides information relating to an encoding, which represents a media RTP
