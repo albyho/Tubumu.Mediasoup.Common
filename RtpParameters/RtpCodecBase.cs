@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -21,7 +21,7 @@ namespace Tubumu.Mediasoup
         /// The number of channels supported (e.g. two for stereo). Just for audio.
         /// Default 1.
         /// </summary>
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? Channels { get; set; }
 
         /// <summary>

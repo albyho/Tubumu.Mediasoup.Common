@@ -1,4 +1,4 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -7,10 +7,10 @@ namespace Tubumu.Mediasoup
     /// </summary>
     public enum SrtpCryptoSuite
     {
-        [EnumStringValue("AES_CM_128_HMAC_SHA1_80")]
+        [EnumMember(Value = "AES_CM_128_HMAC_SHA1_80")]
         AES_CM_128_HMAC_SHA1_80,
 
-        [EnumStringValue("AES_CM_128_HMAC_SHA1_32")]
+        [EnumMember(Value = "AES_CM_128_HMAC_SHA1_32")]
         AES_CM_128_HMAC_SHA1_32
     }
 }

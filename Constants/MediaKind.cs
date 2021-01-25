@@ -1,13 +1,13 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
     public enum MediaKind
     {
-        [EnumStringValue("audio")]
+        [EnumMember(Value = "audio")]
         Audio,
 
-        [EnumStringValue("video")]
+        [EnumMember(Value = "video")]
         Video
     }
 }

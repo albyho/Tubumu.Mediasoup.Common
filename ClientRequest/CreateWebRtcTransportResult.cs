@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -9,11 +9,11 @@ namespace Tubumu.Mediasoup
 
         public IceParameters IceParameters { get; set; }
 
-        public ReadOnlyCollection<IceCandidate> IceCandidates { get; set; }
+        public IceCandidate[] IceCandidates { get; set; }
 
         public DtlsParameters DtlsParameters { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public SctpParameters? SctpParameters { get; set; }
     }
 }

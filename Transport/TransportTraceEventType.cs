@@ -1,4 +1,4 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -7,10 +7,10 @@ namespace Tubumu.Mediasoup
     /// </summary>
     public enum TransportTraceEventType
     {
-        [EnumStringValue("probation")]
+        [EnumMember(Value = "probation")]
         Probation,
 
-        [EnumStringValue("bwe")]
+        [EnumMember(Value = "bwe")]
         BWE
     }
 }

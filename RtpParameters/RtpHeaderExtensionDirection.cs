@@ -1,4 +1,4 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -7,16 +7,16 @@ namespace Tubumu.Mediasoup
     /// </summary>
     public enum RtpHeaderExtensionDirection
     {
-        [EnumStringValue("sendrecv")]
+        [EnumMember(Value = "sendrecv")]
         SendReceive,
 
-        [EnumStringValue("sendonly")]
+        [EnumMember(Value = "sendonly")]
         SendOnly,
 
-        [EnumStringValue("recvonly")]
+        [EnumMember(Value = "recvonly")]
         ReceiveOnly,
 
-        [EnumStringValue("inactive")]
+        [EnumMember(Value = "inactive")]
         Inactive
     }
 }

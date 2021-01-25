@@ -1,13 +1,13 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
     public enum DataProducerType
     {
-        [EnumStringValue("sctp")]
+        [EnumMember(Value = "sctp")]
         Sctp,
 
-        [EnumStringValue("direct")]
+        [EnumMember(Value = "direct")]
         Direct
     }
 }

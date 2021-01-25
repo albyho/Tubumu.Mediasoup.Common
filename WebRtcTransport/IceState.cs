@@ -1,22 +1,22 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
     public enum IceState
     {
-        [EnumStringValue("new")]
+        [EnumMember(Value = "new")]
         New,
 
-        [EnumStringValue("connected")]
+        [EnumMember(Value = "connected")]
         Connected,
 
-        [EnumStringValue("completed")]
+        [EnumMember(Value = "completed")]
         Completed,
 
-        [EnumStringValue("disconnected")]
+        [EnumMember(Value = "disconnected")]
         Disconnected,
 
-        [EnumStringValue("closed")]
+        [EnumMember(Value = "closed")]
         Closed
     }
 }

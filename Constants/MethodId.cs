@@ -1,157 +1,157 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
     public enum MethodId
     {
-        [EnumStringValue("worker.dump")]
+        [EnumMember(Value = "worker.dump")]
         WORKER_DUMP = 1,
 
-        [EnumStringValue("worker.getResourceUsage")]
+        [EnumMember(Value = "worker.getResourceUsage")]
         WORKER_GET_RESOURCE_USAGE,
 
-        [EnumStringValue("worker.updateSettings")]
+        [EnumMember(Value = "worker.updateSettings")]
         WORKER_UPDATE_SETTINGS,
 
-        [EnumStringValue("worker.createRouter")]
+        [EnumMember(Value = "worker.createRouter")]
         WORKER_CREATE_ROUTER,
 
-        [EnumStringValue("router.close")]
+        [EnumMember(Value = "router.close")]
         ROUTER_CLOSE,
 
-        [EnumStringValue("router.dump")]
+        [EnumMember(Value = "router.dump")]
         ROUTER_DUMP,
 
-        [EnumStringValue("router.createWebRtcTransport")]
+        [EnumMember(Value = "router.createWebRtcTransport")]
         ROUTER_CREATE_WEBRTC_TRANSPORT,
 
-        [EnumStringValue("router.createPlainTransport")]
+        [EnumMember(Value = "router.createPlainTransport")]
         ROUTER_CREATE_PLAIN_TRANSPORT,
 
-        [EnumStringValue("router.createPipeTransport")]
+        [EnumMember(Value = "router.createPipeTransport")]
         ROUTER_CREATE_PIPE_TRANSPORT,
 
-        [EnumStringValue("router.createDirectTransport")]
+        [EnumMember(Value = "router.createDirectTransport")]
         ROUTER_CREATE_DIRECT_TRANSPORT,
 
-        [EnumStringValue("router.createAudioLevelObserver")]
+        [EnumMember(Value = "router.createAudioLevelObserver")]
         ROUTER_CREATE_AUDIO_LEVEL_OBSERVER,
 
-        [EnumStringValue("transport.close")]
+        [EnumMember(Value = "transport.close")]
         TRANSPORT_CLOSE,
 
-        [EnumStringValue("transport.dump")]
+        [EnumMember(Value = "transport.dump")]
         TRANSPORT_DUMP,
 
-        [EnumStringValue("transport.getStats")]
+        [EnumMember(Value = "transport.getStats")]
         TRANSPORT_GET_STATS,
 
-        [EnumStringValue("transport.connect")]
+        [EnumMember(Value = "transport.connect")]
         TRANSPORT_CONNECT,
 
-        [EnumStringValue("transport.setMaxIncomingBitrate")]
+        [EnumMember(Value = "transport.setMaxIncomingBitrate")]
         TRANSPORT_SET_MAX_INCOMING_BITRATE,
 
-        [EnumStringValue("transport.restartIce")]
+        [EnumMember(Value = "transport.restartIce")]
         TRANSPORT_RESTART_ICE,
 
-        [EnumStringValue("transport.produce")]
+        [EnumMember(Value = "transport.produce")]
         TRANSPORT_PRODUCE,
 
-        [EnumStringValue("transport.consume")]
+        [EnumMember(Value = "transport.consume")]
         TRANSPORT_CONSUME,
 
-        [EnumStringValue("transport.produceData")]
+        [EnumMember(Value = "transport.produceData")]
         TRANSPORT_PRODUCE_DATA,
 
-        [EnumStringValue("transport.consumeData")]
+        [EnumMember(Value = "transport.consumeData")]
         TRANSPORT_CONSUME_DATA,
 
-        [EnumStringValue("transport.enableTraceEvent")]
+        [EnumMember(Value = "transport.enableTraceEvent")]
         TRANSPORT_ENABLE_TRACE_EVENT,
 
-        [EnumStringValue("producer.close")]
+        [EnumMember(Value = "producer.close")]
         PRODUCER_CLOSE,
 
-        [EnumStringValue("producer.dump")]
+        [EnumMember(Value = "producer.dump")]
         PRODUCER_DUMP,
 
-        [EnumStringValue("producer.getStats")]
+        [EnumMember(Value = "producer.getStats")]
         PRODUCER_GET_STATS,
 
-        [EnumStringValue("producer.pause")]
+        [EnumMember(Value = "producer.pause")]
         PRODUCER_PAUSE,
 
-        [EnumStringValue("producer.resume")]
+        [EnumMember(Value = "producer.resume")]
         PRODUCER_RESUME,
 
-        [EnumStringValue("producer.enableTraceEvent")]
+        [EnumMember(Value = "producer.enableTraceEvent")]
         PRODUCER_ENABLE_TRACE_EVENT,
 
-        [EnumStringValue("consumer.close")]
+        [EnumMember(Value = "consumer.close")]
         CONSUMER_CLOSE,
 
-        [EnumStringValue("consumer.dump")]
+        [EnumMember(Value = "consumer.dump")]
         CONSUMER_DUMP,
 
-        [EnumStringValue("consumer.getStats")]
+        [EnumMember(Value = "consumer.getStats")]
         CONSUMER_GET_STATS,
 
-        [EnumStringValue("consumer.pause")]
+        [EnumMember(Value = "consumer.pause")]
         CONSUMER_PAUSE,
 
-        [EnumStringValue("consumer.resume")]
+        [EnumMember(Value = "consumer.resume")]
         CONSUMER_RESUME,
 
-        [EnumStringValue("consumer.setPreferredLayers")]
+        [EnumMember(Value = "consumer.setPreferredLayers")]
         CONSUMER_SET_PREFERRED_LAYERS,
 
-        [EnumStringValue("consumer.setPriority")]
+        [EnumMember(Value = "consumer.setPriority")]
         CONSUMER_SET_PRIORITY,
 
-        [EnumStringValue("consumer.requestKeyFrame")]
+        [EnumMember(Value = "consumer.requestKeyFrame")]
         CONSUMER_REQUEST_KEY_FRAME,
 
-        [EnumStringValue("consumer.enableTraceEvent")]
+        [EnumMember(Value = "consumer.enableTraceEvent")]
         CONSUMER_ENABLE_TRACE_EVENT,
 
-        [EnumStringValue("dataProducer.close")]
+        [EnumMember(Value = "dataProducer.close")]
         DATA_PRODUCER_CLOSE,
 
-        [EnumStringValue("dataProducer.dump")]
+        [EnumMember(Value = "dataProducer.dump")]
         DATA_PRODUCER_DUMP,
 
-        [EnumStringValue("dataProducer.getStats")]
+        [EnumMember(Value = "dataProducer.getStats")]
         DATA_PRODUCER_GET_STATS,
 
-        [EnumStringValue("dataConsumer.dump")]
+        [EnumMember(Value = "dataConsumer.dump")]
         DATA_CONSUMER_CLOSE,
 
-        [EnumStringValue("dataConsumer.close")]
+        [EnumMember(Value = "dataConsumer.close")]
         DATA_CONSUMER_DUMP,
 
-        [EnumStringValue("dataConsumer.getStats")]
+        [EnumMember(Value = "dataConsumer.getStats")]
         DATA_CONSUMER_GET_STATS,
 
-        [EnumStringValue("dataConsumer.getBufferedAmount")]
+        [EnumMember(Value = "dataConsumer.getBufferedAmount")]
         DATA_CONSUMER_GET_BUFFERED_AMOUNT,
 
-        [EnumStringValue("dataConsumer.setBufferedAmountLowThreshold")]
+        [EnumMember(Value = "dataConsumer.setBufferedAmountLowThreshold")]
         DATA_CONSUMER_SET_BUFFERED_AMOUNT_LOW_THRESHOLD,
 
-        [EnumStringValue("rtpObserver.close")]
+        [EnumMember(Value = "rtpObserver.close")]
         RTP_OBSERVER_CLOSE,
 
-        [EnumStringValue("rtpObserver.pause")]
+        [EnumMember(Value = "rtpObserver.pause")]
         RTP_OBSERVER_PAUSE,
 
-        [EnumStringValue("rtpObserver.resume")]
+        [EnumMember(Value = "rtpObserver.resume")]
         RTP_OBSERVER_RESUME,
 
-        [EnumStringValue("rtpObserver.addProducer")]
+        [EnumMember(Value = "rtpObserver.addProducer")]
         RTP_OBSERVER_ADD_PRODUCER,
 
-        [EnumStringValue("rtpObserver.removeProducer")]
+        [EnumMember(Value = "rtpObserver.removeProducer")]
         RTP_OBSERVER_REMOVE_PRODUCER
     }
 }

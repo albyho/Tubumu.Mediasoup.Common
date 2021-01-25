@@ -1,16 +1,16 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
     public enum DtlsRole
     {
-        [EnumStringValue("auto")]
+        [EnumMember(Value = "auto")]
         Auto,
 
-        [EnumStringValue("client")]
+        [EnumMember(Value = "client")]
         Client,
 
-        [EnumStringValue("server")]
+        [EnumMember(Value = "server")]
         Server
     }
 }

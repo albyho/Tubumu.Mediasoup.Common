@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -24,7 +24,7 @@ namespace Tubumu.Mediasoup
         /// <summary>
         /// Supported FEC mechanisms.
         /// </summary>
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string[]? FecMechanisms { get; set; }
 
         public static RtpCapabilities SupportedRtpCapabilities { get; }

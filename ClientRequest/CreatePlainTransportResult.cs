@@ -1,7 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-
-namespace Tubumu.Mediasoup
+﻿namespace Tubumu.Mediasoup
 {
     public class CreatePlainTransportResult
     {

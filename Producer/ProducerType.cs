@@ -1,4 +1,4 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -7,16 +7,16 @@ namespace Tubumu.Mediasoup
     /// </summary>
     public enum ProducerType
     {
-        [EnumStringValue("simple")]
+        [EnumMember(Value = "simple")]
         Simple,
 
-        [EnumStringValue("simulcast")]
+        [EnumMember(Value = "simulcast")]
         Simulcast,
 
-        [EnumStringValue("svc")]
+        [EnumMember(Value = "svc")]
         Svc,
 
-        [EnumStringValue("pipe")]
+        [EnumMember(Value = "pipe")]
         Pipe
     }
 }

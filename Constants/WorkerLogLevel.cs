@@ -1,4 +1,4 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -7,25 +7,25 @@ namespace Tubumu.Mediasoup
         /// <summary>
         /// Log all severities.
         /// </summary>
-        [EnumStringValue("debug")]
+        [EnumMember(Value = "debug")]
         Debug,
 
         /// <summary>
         /// Log “warn” and “error” severities.
         /// </summary>
-        [EnumStringValue("warn")]
+        [EnumMember(Value = "warn")]
         Warn,
 
         /// <summary>
         /// Log “error” severity.
         /// </summary>
-        [EnumStringValue("error")]
+        [EnumMember(Value = "error")]
         Error,
 
         /// <summary>
         /// Do not log anything.
         /// </summary>
-        [EnumStringValue("none")]
+        [EnumMember(Value = "none")]
         None
     }
 }

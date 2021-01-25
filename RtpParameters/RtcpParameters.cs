@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -18,7 +18,7 @@ namespace Tubumu.Mediasoup
         /// <summary>
         /// The Canonical Name (CNAME) used by RTCP (e.g. in SDES messages).
         /// </summary>
-        [JsonProperty("cname")]
+        [JsonPropertyName("cname")]
         public string? CNAME { get; set; }
 
         /// <summary>

@@ -1,22 +1,22 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
 
 namespace Tubumu.Mediasoup
 {
     public enum DtlsState
     {
-        [EnumStringValue("new")]
+        [EnumMember(Value = "new")]
         New,
 
-        [EnumStringValue("connecting")]
+        [EnumMember(Value = "connecting")]
         Connecting,
 
-        [EnumStringValue("connected")]
+        [EnumMember(Value = "connected")]
         Connected,
-
-        [EnumStringValue("failed")]
+        
+        [EnumMember(Value = "failed")]
         Failed,
 
-        [EnumStringValue("closed")]
+        [EnumMember(Value = "closed")]
         Closed
     }
 }

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -16,7 +16,7 @@ namespace Tubumu.Mediasoup
 
         public string Type { get; set; } = "host";
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? TcpType { get; set; } // passive
     }
 }

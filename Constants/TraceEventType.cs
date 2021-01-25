@@ -1,4 +1,5 @@
-﻿using Tubumu.Core.Extensions;
+﻿using System.Runtime.Serialization;
+using Tubumu.Core.Extensions;
 
 namespace Tubumu.Mediasoup
 {
@@ -10,31 +11,31 @@ namespace Tubumu.Mediasoup
         /// <summary>
         /// RTP
         /// </summary>
-        [EnumStringValue("rtp")]
+        [EnumMember(Value = "rtp")]
         RTP,
 
         /// <summary>
         /// 关键帧
         /// </summary>
-        [EnumStringValue("keyframe")]
+        [EnumMember(Value = "keyframe")]
         Keyframe,
 
         /// <summary>
         /// NACK
         /// </summary>
-        [EnumStringValue("nack")]
+        [EnumMember(Value = "nack")]
         nack,
 
         /// <summary>
         /// PLI: (Picture Loss Indication) 视频帧丢失重传
         /// </summary>
-        [EnumStringValue("pli")]
+        [EnumMember(Value = "pli")]
         PLI,
 
         /// <summary>
         /// Full Intra Request
         /// </summary>
-        [EnumStringValue("fir")]
+        [EnumMember(Value = "fir")]
         FIR
     }
 }
