@@ -13,7 +13,6 @@ namespace Tubumu.Mediasoup
 
         public DtlsParameters DtlsParameters { get; set; }
 
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public SctpParameters? SctpParameters { get; set; }
     }
 }
