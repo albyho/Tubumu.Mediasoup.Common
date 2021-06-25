@@ -16,10 +16,10 @@ namespace Tubumu.Mediasoup
     public class RtpHeaderExtension
     {
         /// <summary>
-        /// Media kind. If empty string, it's valid for all kinds.
+        /// Media kind.
         /// Default any media kind.
         /// </summary>
-        public MediaKind? Kind { get; set; }
+        public MediaKind Kind { get; set; }
 
         /// <summary>
         /// The URI of the RTP header extension, as defined in RFC 5285.

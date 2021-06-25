@@ -52,6 +52,9 @@ namespace Tubumu.Mediasoup
         [EnumMember(Value = "transport.setMaxIncomingBitrate")]
         TRANSPORT_SET_MAX_INCOMING_BITRATE,
 
+        [EnumMember(Value = "transport.setMaxOutgoingBitrate")]
+        TRANSPORT_SET_MAX_OUTGOING_BITRATE,
+
         [EnumMember(Value = "transport.restartIce")]
         TRANSPORT_RESTART_ICE,
 

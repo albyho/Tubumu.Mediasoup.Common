@@ -21,12 +21,6 @@ namespace Tubumu.Mediasoup
         /// </summary>
         public RtpHeaderExtension[]? HeaderExtensions { get; set; }
 
-        /// <summary>
-        /// Supported FEC mechanisms.
-        /// </summary>
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string[]? FecMechanisms { get; set; }
-
         public static RtpCapabilities SupportedRtpCapabilities { get; }
 
         static RtpCapabilities()
