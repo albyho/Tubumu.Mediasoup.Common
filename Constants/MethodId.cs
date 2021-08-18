@@ -34,6 +34,9 @@ namespace Tubumu.Mediasoup
         [EnumMember(Value = "router.createDirectTransport")]
         ROUTER_CREATE_DIRECT_TRANSPORT,
 
+        [EnumMember(Value = "router.createActiveSpeakerObserver")]
+        ROUTER_CREATE_ACTIVE_SPEAKER_OBSERVER,
+
         [EnumMember(Value = "router.createAudioLevelObserver")]
         ROUTER_CREATE_AUDIO_LEVEL_OBSERVER,
 
