@@ -4,7 +4,7 @@ namespace Tubumu.Mediasoup
 {
     public class SetPeerAppDataRequest
     {
-        public Dictionary<string, object> PeerAppData { get; set; }
+        public Dictionary<string, object> AppData { get; set; }
     }
 
     public class UnsetPeerAppDataRequest
@@ -12,14 +12,14 @@ namespace Tubumu.Mediasoup
         public string[] Keys { get; set; }
     }
 
-    public class SetPeerControlDataRequest
+    public class SetPeerInternalDataRequest
     {
         public string PeerId { get; set; }
 
-        public Dictionary<string, object> PeerControlData { get; set; }
+        public Dictionary<string, object> InternalData { get; set; }
     }
 
-    public class UnsetPeerControlDataRequest
+    public class UnsetPeerInternalDataRequest
     {
         public string PeerId { get; set; }
 
