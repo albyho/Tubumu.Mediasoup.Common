@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -17,18 +18,21 @@ namespace Tubumu.Mediasoup
         /// <summary>
         /// The RID RTP extension value. Must be unique.
         /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] // FIX: libmediasoupclient "invalid encoding.rid" error.
         public string? Rid { get; set; }
 
         /// <summary>
         /// Codec payload type this encoding affects. If unset, first media codec is
         /// chosen.
         /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? CodecPayloadType { get; set; }
 
         /// <summary>
         /// RTX stream information. It must contain a numeric ssrc field indicating
         /// the RTX SSRC.
         /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] // FIX: libmediasoupclient "invalid encoding.rtx" error.
         public Rtx? Rtx { get; set; }
 
         /// <summary>
@@ -43,6 +47,7 @@ namespace Tubumu.Mediasoup
         /// Number of spatial and temporal layers in the RTP stream (e.g. 'L1T3').
         /// See webrtc-svc.
         /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] // FIX: libmediasoupclient "invalid encoding.scalabilityMode" error.
         public string? ScalabilityMode { get; set; }
 
         /// <summary>
