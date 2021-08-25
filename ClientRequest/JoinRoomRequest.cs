@@ -1,4 +1,6 @@
-﻿namespace Tubumu.Mediasoup
+﻿using System.Runtime.Serialization;
+
+namespace Tubumu.Mediasoup
 {
     public class JoinRoomRequest
     {
@@ -9,7 +11,10 @@
 
     public enum UserRole
     {
+        [EnumMember(Value = "normal")]
         Normal,
+
+        [EnumMember(Value = "admin")]
         Admin
     }
 }
