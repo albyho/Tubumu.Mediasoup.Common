@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Tubumu.Mediasoup
 {
@@ -30,6 +31,7 @@ namespace Tubumu.Mediasoup
         /// <summary>
         /// The preferred RTP payload type.
         /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? PreferredPayloadType { get; set; }
 
         /// <summary>
