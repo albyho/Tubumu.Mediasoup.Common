@@ -224,7 +224,7 @@ namespace Tubumu.Mediasoup
 
             if (levelStr.Length == 1)
             {
-                levelStr = $"0{levelStr}";
+                levelStr = levelStr.PadLeft(2, '0');
             }
 
             return $"{profile_idc_iop_string}{levelStr}";
