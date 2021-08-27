@@ -4,7 +4,7 @@ namespace Tubumu.Mediasoup
 {
     public class PullRequest
     {
-        public string ProducerPeerId { get; set; }
+        public string PeerId { get; set; }
 
         public HashSet<string> Sources { get; set; }
     }
