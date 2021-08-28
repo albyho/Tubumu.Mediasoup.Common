@@ -11,7 +11,7 @@ namespace Tubumu.Mediasoup.Extensions
             {
                 // we need to access val.Exception property otherwise unobserved exception will be thrown
                 // ReSharper disable once PossibleNullReferenceException
-                foreach (var ex in val.Exception.Flatten().InnerExceptions)
+                foreach (var ex in val.Exception!.Flatten().InnerExceptions)
                 {
                     logger.LogError(ex, $"Task exception");
                 }
@@ -22,7 +22,7 @@ namespace Tubumu.Mediasoup.Extensions
         {
             task.ContinueWith(val =>
             {
-                val.Exception.Handle(ex =>
+                val.Exception!.Handle(ex =>
                 {
                     logger.LogError(ex, $"Task exception");
                     return true;

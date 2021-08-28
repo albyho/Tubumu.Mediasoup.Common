@@ -10,7 +10,7 @@ namespace Tubumu.Mediasoup
         /// </summary>
         /// <param name="eventName">Event name to subscribe to</param>
         /// <param name="method">Method to add to the event</param>
-        void On(string eventName, Func<object?, Task> method);
+        void On(string eventName, Func<string, object?, Task> method);
 
         /// <summary>
         /// Emits the event and associated data
@@ -24,7 +24,7 @@ namespace Tubumu.Mediasoup
         /// </summary>
         /// <param name="eventName">Event name to remove function from</param>
         /// <param name="method">Method to remove from eventName</param>
-        void RemoveListener(string eventName, Func<object?, Task> method);
+        void RemoveListener(string eventName, Func<string, object?, Task> method);
 
         /// <summary>
         /// Removes all methods from the event [eventName]

@@ -21,7 +21,7 @@ namespace Tubumu.Mediasoup
         /// </summary>
         public RtcpFeedback[]? RtcpFeedback { get; set; }
 
-        public bool Equals(RtpCodecParameters other)
+        public bool Equals(RtpCodecParameters? other)
         {
             if (other == null)
             {
@@ -57,7 +57,7 @@ namespace Tubumu.Mediasoup
             return result;
         }
 
-        public override bool Equals(object other)
+        public override bool Equals(object? other)
         {
             if (other is RtpCodecParameters)
             {

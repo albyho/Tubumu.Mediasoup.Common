@@ -23,7 +23,8 @@ namespace Tubumu.Mediasoup
         }
         */
 
-        private readonly Dictionary<string, List<Func<object?, Task>>> _events;
+        private const char EventSeparator = ',';
+        private readonly Dictionary<string, List<Func<string, object?, Task>>> _events;
         private readonly ReaderWriterLockSlim _rwl;
 
         /// <summary>
@@ -31,26 +32,31 @@ namespace Tubumu.Mediasoup
         /// </summary>
         public EventEmitter()
         {
-            _events = new Dictionary<string, List<Func<object?, Task>>>();
+            _events = new Dictionary<string, List<Func<string, object?, Task>>>();
             _rwl = new ReaderWriterLockSlim();
         }
 
         /// <summary>
         /// Whenever eventName is emitted, the methods attached to this event will be called
         /// </summary>
-        /// <param name="eventName">Event name to subscribe to</param>
+        /// <param name="eventNames">Event name to subscribe to</param>
         /// <param name="method">Method to add to the event</param>
-        public void On(string eventName, Func<object?, Task> method)
+        public void On(string eventNames, Func<string, object?, Task> method)
         {
             _rwl.EnterWriteLock();
-            if (_events.TryGetValue(eventName, out List<Func<object?, Task>> subscribedMethods))
+            var eventNameList = eventNames.Split(EventSeparator, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var eventName in eventNameList)
             {
-                subscribedMethods.Add(method);
+                if (_events.TryGetValue(eventName, out var subscribedMethods))
+                {
+                    subscribedMethods.Add(method);
+                }
+                else
+                {
+                    _events.Add(eventName, new List<Func<string, object?, Task>> { method });
+                }
             }
-            else
-            {
-                _events.Add(eventName, new List<Func<object?, Task>> { method });
-            }
+
             _rwl.ExitWriteLock();
         }
 
@@ -62,7 +68,7 @@ namespace Tubumu.Mediasoup
         public void Emit(string eventName, object? data = null)
         {
             _rwl.EnterReadLock();
-            if (!_events.TryGetValue(eventName, out List<Func<object?, Task>> subscribedMethods))
+            if (!_events.TryGetValue(eventName, out var subscribedMethods))
             {
                 //throw new DoesNotExistException(string.Format("Event [{0}] does not exist in the emitter. Consider calling EventEmitter.On", eventName));
             }
@@ -70,11 +76,9 @@ namespace Tubumu.Mediasoup
             {
                 foreach (var f in subscribedMethods)
                 {
-                    // For Testing
-                    //f(data).ConfigureAwait(false).GetAwaiter().GetResult();
-                    f(data).ContinueWith(val =>
+                    f(eventName, data).ContinueWith(val =>
                     {
-                        val.Exception.Handle(ex =>
+                        val.Exception!.Handle(ex =>
                         {
                             Debug.WriteLine("Emit fail:{0}", ex);
                             return true;
@@ -88,25 +92,29 @@ namespace Tubumu.Mediasoup
         /// <summary>
         /// Removes [method] from the event
         /// </summary>
-        /// <param name="eventName">Event name to remove function from</param>
+        /// <param name="eventNames">Event name to remove function from</param>
         /// <param name="method">Method to remove from eventName</param>
-        public void RemoveListener(string eventName, Func<object?, Task> method)
+        public void RemoveListener(string eventNames, Func<string, object?, Task> method)
         {
             _rwl.EnterWriteLock();
-            if (!_events.TryGetValue(eventName, out List<Func<object?, Task>> subscribedMethods))
+            var eventNameList = eventNames.Split(EventSeparator, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var eventName in eventNameList)
             {
-                throw new DoesNotExistException(string.Format("Event [{0}] does not exist to have listeners removed.", eventName));
-            }
-            else
-            {
-                var _event = subscribedMethods.Exists(e => e == method);
-                if (_event == false)
+                if (!_events.TryGetValue(eventName, out var subscribedMethods))
                 {
-                    throw new DoesNotExistException(string.Format("Func [{0}] does not exist to be removed.", method.Method));
+                    throw new DoesNotExistException(string.Format("Event [{0}] does not exist to have listeners removed.", eventName));
                 }
                 else
                 {
-                    subscribedMethods.Remove(method);
+                    var _event = subscribedMethods.Exists(e => e == method);
+                    if (_event == false)
+                    {
+                        throw new DoesNotExistException(string.Format("Func [{0}] does not exist to be removed.", method.Method));
+                    }
+                    else
+                    {
+                        subscribedMethods.Remove(method);
+                    }
                 }
             }
             _rwl.ExitWriteLock();
@@ -115,17 +123,21 @@ namespace Tubumu.Mediasoup
         /// <summary>
         /// Removes all methods from the event [eventName]
         /// </summary>
-        /// <param name="eventName">Event name to remove methods from</param>
-        public void RemoveAllListeners(string eventName)
+        /// <param name="eventNames">Event name to remove methods from</param>
+        public void RemoveAllListeners(string eventNames)
         {
             _rwl.EnterWriteLock();
-            if (!_events.TryGetValue(eventName, out List<Func<object?, Task>> subscribedMethods))
+            var eventNameList = eventNames.Split(EventSeparator, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var eventName in eventNameList)
             {
-                throw new DoesNotExistException(string.Format("Event [{0}] does not exist to have methods removed.", eventName));
-            }
-            else
-            {
-                subscribedMethods.RemoveAll(m => true);
+                if (!_events.TryGetValue(eventName, out var subscribedMethods))
+                {
+                    throw new DoesNotExistException(string.Format("Event [{0}] does not exist to have methods removed.", eventName));
+                }
+                else
+                {
+                    subscribedMethods.RemoveAll(m => true);
+                }
             }
             _rwl.ExitWriteLock();
         }

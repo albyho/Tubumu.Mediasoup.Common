@@ -247,7 +247,7 @@ namespace Tubumu.Mediasoup
                 return DefaultProfileLevelId;
             }
 
-            return ParseProfileLevelId(profile_level_id.ToString());
+            return ParseProfileLevelId(profile_level_id.ToString()!);
         }
 
         /// <summary>
