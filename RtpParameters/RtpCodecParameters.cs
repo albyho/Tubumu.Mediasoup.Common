@@ -1,5 +1,5 @@
 ﻿using System;
-using Tubumu.Core.Extensions;
+using Tubumu.Utils.Extensions;
 
 namespace Tubumu.Mediasoup
 {
