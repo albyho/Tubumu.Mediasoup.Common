@@ -23,6 +23,7 @@ namespace Tubumu.Mediasoup
 
         public static RtpCapabilities SupportedRtpCapabilities { get; }
 
+
         static RtpCapabilities()
         {
             SupportedRtpCapabilities = new RtpCapabilities
@@ -34,6 +35,60 @@ namespace Tubumu.Mediasoup
                         MimeType = "audio/opus",
                         ClockRate = 48000,
                         Channels = 2,
+                        RtcpFeedback = new RtcpFeedback[]
+                        {
+                            new RtcpFeedback{
+                                Type = "transport-cc",
+                            },
+                        }
+                    },
+                    new RtpCodecCapability {
+                        Kind = MediaKind.Audio,
+                        MimeType = "audio/multiopus",
+                        ClockRate = 48000,
+                        Channels = 4,
+                        // Quad channel
+                        Parameters = new Dictionary<string, object> {
+                            { "channel_mapping", "0,1,2,3" },
+                            { "num_streams", 2 },
+                            { "coupled_streams", 2 },
+                        },
+                        RtcpFeedback = new RtcpFeedback[]
+                        {
+                            new RtcpFeedback{
+                                Type = "transport-cc",
+                            },
+                        }
+                    },
+                    new RtpCodecCapability {
+                        Kind = MediaKind.Audio,
+                        MimeType = "audio/multiopus",
+                        ClockRate = 48000,
+                        Channels = 6,
+                        // 5.1
+                        Parameters = new Dictionary<string, object> {
+                            { "channel_mapping", "0,4,1,2,3,5" },
+                            { "num_streams", 4 },
+                            { "coupled_streams", 2 },
+                        },
+                        RtcpFeedback = new RtcpFeedback[]
+                        {
+                            new RtcpFeedback{
+                                Type = "transport-cc",
+                            },
+                        }
+                    },
+                    new RtpCodecCapability {
+                        Kind = MediaKind.Audio,
+                        MimeType = "audio/multiopus",
+                        ClockRate = 48000,
+                        Channels = 8,
+                        // 7.1
+                        Parameters = new Dictionary<string, object> {
+                            { "channel_mapping", "0,6,1,2,3,4,5,7" },
+                            { "num_streams", 5 },
+                            { "coupled_streams", 4 },
+                        },
                         RtcpFeedback = new RtcpFeedback[]
                         {
                             new RtcpFeedback{
@@ -243,34 +298,6 @@ namespace Tubumu.Mediasoup
                         MimeType ="video/H264",
                         ClockRate = 90000,
                         Parameters = new Dictionary<string, object> {
-                            { "packetization-mode", 1 },
-                            { "level-asymmetry-allowed", 1 },
-                        },
-                        RtcpFeedback = new RtcpFeedback[]
-                        {
-                            new RtcpFeedback {
-                                Type = "nack",
-                            },
-                            new RtcpFeedback {
-                                Type = "nack", Parameter = "pli",
-                            },
-                            new RtcpFeedback {
-                                Type = "ccm", Parameter = "fir",
-                            },
-                            new RtcpFeedback {
-                                Type = "goog-remb",
-                            },
-                            new RtcpFeedback {
-                                Type = "transport-cc",
-                            },
-                        }
-                    },
-                    new RtpCodecCapability {
-                        Kind = MediaKind.Video,
-                        MimeType ="video/H264",
-                        ClockRate = 90000,
-                        Parameters = new Dictionary<string, object> {
-                            { "packetization-mode", 0 },
                             { "level-asymmetry-allowed", 1 },
                         },
                         RtcpFeedback = new RtcpFeedback[]
@@ -297,34 +324,6 @@ namespace Tubumu.Mediasoup
                         MimeType ="video/H265",
                         ClockRate = 90000,
                         Parameters = new Dictionary<string, object> {
-                            { "packetization-mode", 1 },
-                            { "level-asymmetry-allowed", 1 },
-                        },
-                        RtcpFeedback = new RtcpFeedback[]
-                        {
-                            new RtcpFeedback {
-                                Type = "nack",
-                            },
-                            new RtcpFeedback {
-                                Type = "nack", Parameter = "pli",
-                            },
-                            new RtcpFeedback {
-                                Type = "ccm", Parameter = "fir",
-                            },
-                            new RtcpFeedback {
-                                Type = "goog-remb",
-                            },
-                            new RtcpFeedback {
-                                Type = "transport-cc",
-                            },
-                        }
-                    },
-                    new RtpCodecCapability {
-                        Kind = MediaKind.Video,
-                        MimeType ="video/H265",
-                        ClockRate = 90000,
-                        Parameters = new Dictionary<string, object> {
-                            { "packetization-mode", 0 },
                             { "level-asymmetry-allowed", 1 },
                         },
                         RtcpFeedback = new RtcpFeedback[]
@@ -439,6 +438,20 @@ namespace Tubumu.Mediasoup
                         Kind = MediaKind.Video,
                         Uri= "urn:ietf:params:rtp-hdrext:toffset",
                         PreferredId= 12,
+                        PreferredEncrypt = false,
+                        Direction = RtpHeaderExtensionDirection.SendReceive
+                    },
+                    new RtpHeaderExtension {
+                        Kind = MediaKind.Video,
+                        Uri= "http://www.webrtc.org/experiments/rtp-hdrext/abs-capture-time",
+                        PreferredId= 13,
+                        PreferredEncrypt = false,
+                        Direction = RtpHeaderExtensionDirection.SendReceive
+                    },
+                    new RtpHeaderExtension {
+                        Kind = MediaKind.Audio,
+                        Uri= "http://www.webrtc.org/experiments/rtp-hdrext/abs-capture-time",
+                        PreferredId= 13,
                         PreferredEncrypt = false,
                         Direction = RtpHeaderExtensionDirection.SendReceive
                     }
