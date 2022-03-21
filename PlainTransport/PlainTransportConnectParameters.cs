@@ -1,4 +1,6 @@
-﻿namespace Tubumu.Mediasoup
+﻿using System.Text.Json.Serialization;
+
+namespace Tubumu.Mediasoup
 {
     public class PlainTransportConnectParameters
     {
@@ -6,8 +8,10 @@
 
         public int Port { get; set; }
 
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public int? RtcpPort { get; set; }
 
-        public SrtpParameters SrtpParameters { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public SrtpParameters? SrtpParameters { get; set; }
     }
 }
